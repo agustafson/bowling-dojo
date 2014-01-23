@@ -2,7 +2,7 @@ package bowling
 
 object BowlingApp extends App {
   def process(line: Seq[Char]): Int = {
-    val lines = line.toList.tails.toList
+    val lines = line.toList.tails
     val result = ((0, 0, 0, 0) /: lines){
       case ((total, frameTotal, frame, balls), ball :: tail) if frame < 10 =>
         val ballScore = toScore(ball)
