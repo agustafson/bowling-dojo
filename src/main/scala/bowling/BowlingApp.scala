@@ -15,7 +15,8 @@ object BowlingApp extends App {
     s.toList match {
       case 'X' :: '-' :: Nil => Frame(10, None)
       case '-' :: '-' :: Nil => Frame(0, None)
-      case '-' :: second :: Nil => Frame(0, Some(10))
+      case '-' :: '/' :: Nil => Frame(0, Some(10))
+      case '-' :: second :: Nil => Frame(0, Some(Integer.parseInt(second.toString)))
       case first :: '-' :: Nil => Frame(Integer.parseInt(first.toString), None)
       case first :: '/' :: Nil => Frame(Integer.parseInt(first.toString), Some(10 - Integer.parseInt(first.toString)))
       case first :: second :: Nil => Frame(Integer.parseInt(first.toString), Some(Integer.parseInt(second.toString)))
