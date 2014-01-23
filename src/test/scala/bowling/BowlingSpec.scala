@@ -23,5 +23,8 @@ class BowlingSpec extends Specification {
     "--XXXXXXXXXXX  checking 2 gutter balls" in {
       BowlingApp.calculateScore("--XXXXXXXXXXX") === 270
     }
+    "-/XXXXXXXXXXX  checking 2 gutter balls" in {
+      BowlingApp.calculateScore("-/XXXXXXXXXXX") === 290
+    }
   }
 }
