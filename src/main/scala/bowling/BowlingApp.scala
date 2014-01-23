@@ -14,6 +14,7 @@ object BowlingApp extends App {
   def frames(rolls: String) : Seq[Frame] = rolls.sliding(2, 2).toList.map { s =>
     s.toList match {
       case 'X' :: '-' :: Nil => Frame(10, None)
+      case '-' :: '-' :: Nil => Frame(0, None)
       case first :: '-' :: Nil => Frame(Integer.parseInt(first.toString), None)
       case first :: '/' :: Nil => Frame(Integer.parseInt(first.toString), Some(10 - Integer.parseInt(first.toString)))
       case first :: second :: Nil => Frame(Integer.parseInt(first.toString), Some(Integer.parseInt(second.toString)))
