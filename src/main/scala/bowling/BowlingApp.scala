@@ -6,7 +6,6 @@ object BowlingApp extends App {
     val result = ((0, 0, 0, 0) /: lineAndTails){
       case ((total, frameTotal, frame, balls), (ball, tail)) =>
         if (frame < 10) {
-          println((total, frame, balls, ball, tail))
           ball match {
             case 'X' if balls == 0 => (total + 10 + processStrike(tail take 2), 0, frame + 1, 0)
             case '/' if balls == 1 => (total + (10 - frameTotal) + processStrike(tail take 1), 0, frame + 1, 0)
