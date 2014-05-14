@@ -59,6 +59,6 @@ object Monoid {
   def append[T](a: T, b: T)(implicit m: Monoid[T]) = m.append(a, b)
 
   def foldMap[A, B: Monoid](as: Seq[A])(f: A => B): B =
-    (Monoid.empty[B] /: (as map f))(Monoid.append[B])
+    (Monoid.empty[B] /: as)((b, a) => Monoid.append(b, f(a)))
 
 }
