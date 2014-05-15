@@ -37,14 +37,10 @@ object Dijoid {
   implicit val digitMonoid: Monoid[Dijoid] = new Monoid[Dijoid] {
     val empty = Dijoid(Seq.fill(5)(""))
     def append(a: Dijoid, b: Dijoid) =
-      if (a == empty)
-        b
-      else if (b == empty)
-        a
+      if (a == empty) b
+      else if (b == empty) a
       else
-        Dijoid(0 to 4 map { line =>
-          s"${a.lines(line)} ${b.lines(line)}"
-        })
+        Dijoid(a.lines zip b.lines map { case (al, bl) => s"$al $bl" })
   }
 }
 
